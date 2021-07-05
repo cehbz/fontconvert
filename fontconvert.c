@@ -180,8 +180,7 @@ int main(int argc, char *argv[]) {
   // Process glyphs and output huge bitmap data array
   for (i = first, j = 0; i <= last; i++, j++) {
     if (!glyphs[i]) {
-      table[j] = *table; // missing characters display as the first
-                         // character (usually space)
+      table[j] = (GFXglyph){0,0,0,0,0,0}; // empty entry for invalid glyph
       continue;
     }
     // MONO renderer provides clean image with perfect crop
